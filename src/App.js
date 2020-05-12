@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react'
+import Root from 'templates/Root'
+import Header from 'components/Header'
 
-function App() {
-  return (
-    <div>
-      <h1>Hello World</h1>
-    </div>
-  );
-}
+const App = () => (
+    <Root>
+        <Header />
+    </Root>
+)
 
-export default App;
+export default App
