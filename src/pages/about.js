@@ -6,19 +6,24 @@ const AboutTitle = styled.h2`
     color: #fff;
     transform: translateX(-50px);
     padding: 0;
-    margin: 40px 0 0 0;
+    margin: 0 0 0 0;
     @media (max-width: 800px) {
         transform: translateX(-20px);
     }
 `
 
 const StyledAbout = styled.div`
-    padding: 0 100px;
+    padding: 40px 100px 0 100px;
     font-size: 20px;
     @media (max-width: 800px) {
-        padding: 0 5px;
+        padding: 40px 5px 0 5px;
         font-size: 16px;
+        margin: 0;
     }
+
+    max-height: 100vh;
+    min-height: calc(100vh - 125px);
+    background-color: #181a1b;
 `
 
 const AboutParagraph = styled.p`
@@ -38,7 +43,7 @@ const ContactContainer = styled.div`
     justify-content: space-between;
     margin: 100px 0 0 0;
     @media (max-width: 800px) {
-        margin: 50px 0 0 0;
+        margin: 50px 20px 0 20px;
         flex-direction: column;
     }
 `

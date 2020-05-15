@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 const Title = styled.h1`
     margin: 30px;
@@ -44,7 +44,7 @@ const White = styled.span`
     color: #fff;
 `
 
-const NavLink = styled(Link)`
+const StyledNavLink = styled(NavLink)`
     margin-left: 50px;
     color: #000;
     text-decoration: none;
@@ -56,6 +56,17 @@ const NavLink = styled(Link)`
         font-size: 1em;
         margin-left: 15px;
     }
+    &.active {
+        border-bottom: 2px solid #000;
+        /* chyba ten border też dobrze wygląda no spoko 
+        teraz jescze zmiane koloru tla moze
+
+        imo albo italic albo border
+        napewno nie oba
+        better border
+        */
+        /* font-style: italic; */
+    }
 `
 
 const Header = () => (
@@ -64,8 +75,12 @@ const Header = () => (
             <White>De</White>plagiator
         </Title>
         <Nav>
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/about">About</NavLink>
+            <StyledNavLink to="/home" activeClassName="active">
+                Home
+            </StyledNavLink>
+            <StyledNavLink to="/about" activeClassName="active">
+                About
+            </StyledNavLink>
         </Nav>
     </StyledHeader>
 )

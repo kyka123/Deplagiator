@@ -58,17 +58,23 @@ const Home = () => {
                 language: 'pl',
             }),
         }
-
-        fetch(url, options)
-            .then(response => {
-                response.json().then(({ text }) => {
-                    setResponseText(text)
+        try {
+            fetch(url, options)
+                .then(response => {
+                    response
+                        .json()
+                        .then(({ text }) => {
+                            setResponseText(text)
+                        })
+                        .catch(err => setResponseText('Błąd servera'))
                 })
-            })
-            .catch(err => setResponseText(''))
-            .finally(() => {
-                setLoading(false)
-            })
+                .catch(err => setResponseText('Błąd servera'))
+                .finally(() => {
+                    setLoading(false)
+                })
+        } catch (error) {
+            setResponseText('Błąd servera')
+        }
     }, 2000)
 
     return (
