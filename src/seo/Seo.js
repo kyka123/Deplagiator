@@ -1,5 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
+import icon from 'assets/placeholdericon.png'
 
 const Seo = () => (
     <Helmet>
@@ -10,6 +11,7 @@ const Seo = () => (
             rel="stylesheet"
             type="text/css"
         />
+        <link rel="icon" href={icon} />
     </Helmet>
 )
 

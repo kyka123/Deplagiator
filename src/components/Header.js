@@ -58,14 +58,6 @@ const StyledNavLink = styled(NavLink)`
     }
     &.active {
         border-bottom: 2px solid #000;
-        /* chyba ten border też dobrze wygląda no spoko 
-        teraz jescze zmiane koloru tla moze
-
-        imo albo italic albo border
-        napewno nie oba
-        better border
-        */
-        /* font-style: italic; */
     }
 `
 

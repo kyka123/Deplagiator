@@ -2,9 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 
 const AboutTitle = styled.h2`
-    font-size: 2em;
+    font-size: 3em;
     color: #fff;
-    transform: translateX(-50px);
+    transform: translateX(-100px);
     padding: 0;
     margin: 0 0 0 0;
     @media (max-width: 800px) {
@@ -20,15 +20,12 @@ const StyledAbout = styled.div`
         font-size: 16px;
         margin: 0;
     }
-
-    max-height: 100vh;
-    min-height: calc(100vh - 125px);
-    background-color: #181a1b;
 `
 
 const AboutParagraph = styled.p`
     text-align: justify;
     color: #21cdae;
+    margin: 60px 0 0 0;
 `
 
 const AboutContainer = styled.div`
@@ -41,7 +38,7 @@ const AboutContainer = styled.div`
 const ContactContainer = styled.div`
     display: flex;
     justify-content: space-between;
-    margin: 100px 0 0 0;
+    margin: 120px 0 0 0;
     @media (max-width: 800px) {
         margin: 50px 20px 0 20px;
         flex-direction: column;
@@ -78,7 +75,16 @@ const About = () => (
                 tincidunt vel velit ut venenatis. Vestibulum ultrices eros
                 augue, ut aliquam leo porttitor nec. Nulla sed tempor nulla.
                 Phasellus dignissim rhoncus nulla, vel vestibulum magna
-                elementum non.
+                elementum non.Lorem ipsum dolor sit amet, consectetur adipiscing
+                elit. Nulla elementum luctus lorem, ac ornare quam tempor eu.
+                Suspendisse id efficitur tellus, nec interdum ante. Fusce
+                vehicula augue mollis cursus pharetra. In id faucibus ex,
+                molestie rhoncus arcu. Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit. Donec arcu nulla, varius et turpis eu, feugiat
+                sollicitudin elit. Fusce tincidunt vel velit ut venenatis.
+                Vestibulum ultrices eros augue, ut aliquam leo porttitor nec.
+                Nulla sed tempor nulla. Phasellus dignissim rhoncus nulla, vel
+                vestibulum magna elementum non.
             </AboutParagraph>
         </AboutContainer>
         <ContactContainer>

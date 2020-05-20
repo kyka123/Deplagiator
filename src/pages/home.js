@@ -9,8 +9,8 @@ const Textarea = styled.textarea`
     border-radius: 20px;
     padding: 20px;
     outline: none;
-    box-shadow: 0 5px 5px 5px #3d4043;
-    background-color: #181a1b;
+    /* box-shadow: 0 0 5px 5px #3d4043; */
+    background-color: /*#181a1b*/ #3e3e3e;
     font-size: ${({ len }) => checkLen(len)};
     color: #fff;
     font-weight: 200;

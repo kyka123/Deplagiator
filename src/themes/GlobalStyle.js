@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
   body {
-    background-color: #3e3e3e;
+    background-color: #181a1b;
     margin: 0;
     padding: 0;
     font-family: 'Ms Gothic', monospace;  
@@ -11,7 +11,6 @@ const GlobalStyle = createGlobalStyle`
 
     box-sizing: border-box;
      font-family: 'Ms Gothic', monospace; 
-     ${props => console.log(props)}
   }
 `
 
