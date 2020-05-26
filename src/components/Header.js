@@ -3,42 +3,34 @@ import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 
 const Title = styled.h1`
-    margin: 30px;
+    margin: 0;
     padding: 0;
     font-size: 4em;
     @media (max-width: 800px) {
-        font-size: 3em;
-        margin: 20px;
-    }
-    @media (max-width: 600px) {
-        font-size: 1.5em;
+        font-size: 2em;
     }
 `
 
 const StyledHeader = styled.header`
-    color: #000;
     background-color: #21cdae;
     position: relative;
+    height: 100px;
+    padding: 20px;
     top: 0;
     left: 0;
-    margin: 0;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-between;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-`
-
-const Nav = styled.nav`
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    margin-right: 30px;
-    margin-bottom: 20px;
     @media (max-width: 800px) {
-        margin-right: 20px;
+        height: 60px;
+        padding: 10px;
+        align-items: center;
     }
 `
+
+const Nav = styled.nav``
 
 const White = styled.span`
     color: #fff;
@@ -49,12 +41,10 @@ const StyledNavLink = styled(NavLink)`
     color: #000;
     text-decoration: none;
     font-size: 1.2em;
+
     @media (max-width: 800px) {
-        margin-left: 20px;
-    }
-    @media (max-width: 600px) {
+        margin-left: 10px;
         font-size: 1em;
-        margin-left: 15px;
     }
     &.active {
         border-bottom: 2px solid #000;
@@ -72,6 +62,9 @@ const Header = () => (
             </StyledNavLink>
             <StyledNavLink to="/about" activeClassName="active">
                 About
+            </StyledNavLink>
+            <StyledNavLink to="/contact" activeClassName="active">
+                Contact
             </StyledNavLink>
         </Nav>
     </StyledHeader>

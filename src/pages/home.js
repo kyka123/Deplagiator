@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import LanguageSelect from '../components/LanguageSelector'
 
 const Textarea = styled.textarea`
     resize: none;
-    width: 40%;
-    height: 80%;
     border: none;
     border-radius: 20px;
     padding: 20px;
@@ -15,23 +14,32 @@ const Textarea = styled.textarea`
     color: #fff;
     font-weight: 200;
     font-family: arial;
-    @media (max-width: 800px) {
-        width: 90%;
-        height: 45%;
-    }
+
     &::placeholder {
         font-family: 'Ms Gothic';
     }
 `
 const StyledHome = styled.div`
     position: relative;
-    height: calc(100vh - 150px);
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
+    height: calc(100vh - 100px);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 5fr;
+    grid-gap: 30px;
+    padding: 30px;
     @media (max-width: 800px) {
-        flex-direction: column;
-        height: calc(100vh - 105px);
+        grid-gap: 20px;
+        padding: 20px;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 5fr 5fr;
+        height: calc(100vh - 60px);
+    }
+`
+
+const StyledAd = styled.div`
+    background-color: #fff;
+    @media (max-width: 800px) {
+        display: none;
     }
 `
 
@@ -39,6 +47,7 @@ const Home = () => {
     const [responseText, setResponseText] = useState('')
     const [loading, setLoading] = useState(false)
     const [textLen, setTextLen] = useState(0)
+    const [selectedLanguage, setSelectedLanguage] = useState('pl')
     const write = ({ target }) => {
         send(target.value)
     }
@@ -79,17 +88,10 @@ const Home = () => {
 
     return (
         <StyledHome>
-            <Textarea
-                onChange={write}
-                placeholder="Write here"
-                len={textLen}
-            ></Textarea>
-            <Textarea
-                disabled
-                placeholder="Your Response"
-                len={textLen}
-                value={loading ? '...loading' : responseText || ''}
-            ></Textarea>
+            <LanguageSelect language={selectedLanguage} select={setSelectedLanguage} />
+            <StyledAd>Reklama!!!</StyledAd>
+            <Textarea onChange={write} placeholder="Write here" len={textLen}></Textarea>
+            <Textarea disabled placeholder="Your Response" len={textLen} value={loading ? '...loading' : responseText || ''}></Textarea>
         </StyledHome>
     )
 }

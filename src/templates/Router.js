@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import About from 'pages/About'
 import Home from 'pages/Home'
+import Contact from 'pages/Contact'
 
 const Router = ({ children }) => (
     <BrowserRouter>
@@ -13,6 +14,9 @@ const Router = ({ children }) => (
 
             <Route path="/home">
                 <Home />
+            </Route>
+            <Route path="/contact">
+                <Contact />
             </Route>
             <Route path="/">
                 <Redirect to="home" />
