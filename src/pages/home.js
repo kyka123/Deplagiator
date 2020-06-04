@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import LanguageSelect from '../components/LanguageSelector'
+import Axios from 'axios'
 
 const Textarea = styled.textarea`
     resize: none;
@@ -46,43 +47,28 @@ const StyledAd = styled.div`
 const Home = () => {
     const [responseText, setResponseText] = useState('')
     const [loading, setLoading] = useState(false)
-    const [textLen, setTextLen] = useState(0)
     const [selectedLanguage, setSelectedLanguage] = useState('pl')
-    const write = ({ target }) => {
-        send(target.value)
+    const write = ({ target: { value } }) => {
+        send(value)
     }
 
     const send = debounce(text => {
         setLoading(true)
-        setTextLen(text.length)
-        const url = '/api/'
-        const options = {
-            method: 'POST',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json;charset=UTF-8',
-            },
-            body: JSON.stringify({
-                text,
-                language: 'pl',
-            }),
+        const url = '/api'
+        const data = {
+            text,
+            language: selectedLanguage,
         }
-        try {
-            fetch(url, options)
-                .then(response => {
-                    response
-                        .json()
-                        .then(({ text }) => {
-                            setResponseText(text)
-                        })
-                        .catch(err => setResponseText('Błąd servera'))
+        if (text) {
+            Axios.post(url, data)
+                .then(({ data: { text } }) => {
+                    setResponseText(text)
                 })
                 .catch(err => setResponseText('Błąd servera'))
-                .finally(() => {
-                    setLoading(false)
-                })
-        } catch (error) {
-            setResponseText('Błąd servera')
+                .finally(() => setLoading(false))
+        } else {
+            setResponseText('')
+            setLoading(false)
         }
     }, 2000)
 
@@ -90,8 +76,8 @@ const Home = () => {
         <StyledHome>
             <LanguageSelect language={selectedLanguage} select={setSelectedLanguage} />
             <StyledAd>Reklama!!!</StyledAd>
-            <Textarea onChange={write} placeholder="Write here" len={textLen}></Textarea>
-            <Textarea disabled placeholder="Your Response" len={textLen} value={loading ? '...loading' : responseText || ''}></Textarea>
+            <Textarea onChange={write} placeholder="Write here" len={responseText.length}></Textarea>
+            <Textarea readOnly placeholder="Your Response" len={responseText.length} value={loading ? '...loading' : responseText || ''}></Textarea>
         </StyledHome>
     )
 }
